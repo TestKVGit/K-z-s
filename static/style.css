@@ -1,3 +1,35 @@
 body {
-background-image:url("pénz.jpg");
+    background-image: url("pénz.jpg");
+    font-family: 'Times New Roman', Times, serif;
+    margin: 20px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px , 1fr));
+    gap: 20px;
+}
+
+.fejlec h2 {
+    background-color: rgba(180, 180, 180, 0.8);
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    color:white;
+}
+
+.container a{
+    text-decoration: none;
+    background-color: rgba(180, 180, 180, 0.8);
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    margin-left: 10px;
+    font-size: 20px;
+    color:white;
+}
+
+.container a:hover{
+    background-color: hsla(120, 100%, 25%, 0.6);
 }
