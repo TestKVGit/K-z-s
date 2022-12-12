@@ -77,13 +77,13 @@ def updaterecord():
             netto = int(brutto) * 0.665
             with sqlite3.connect("ber.db") as con:
                 cur = con.cursor()
-                cur.execute("UPDATE Ber SET nev=?, brutto=?, netto=? WHERE id=?", (id, nev, brutto, netto))
+                cur.execute("UPDATE Ber SET nev=?, brutto=?, netto=? WHERE id=?", (nev, brutto, netto, id))
                 con.commit()
                 msg = "Sikeresen frissültek az adatok"
         except:
             msg = "Nemlehet új adatot csinálni"
         finally:
-            return render_template("success.html", msg=msg)
+            return render_template("success.html", msg = msg)
             con.close()
 
 if __name__ == "__main__":
