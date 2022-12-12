@@ -4,7 +4,7 @@ con = sqlite3.connect("ber.db")
 print("Database opened successfully")
 
 con.execute(
-    "create table Ber (id INTEGER PRIMARY KEY NOT NULL, nev TEXT NOT NULL, brutto TEXT NOT NULL, netto TEXT NOT NULL)")
+    "create table Ber (id INTEGER PRIMARY KEY NOT NULL, nev TEXT NOT NULL, brutto INTEGER NOT NULL, netto NUMERIC NOT NULL)")
 
 print("Table created successfully")
 
