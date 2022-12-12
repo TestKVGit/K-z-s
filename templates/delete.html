@@ -1,15 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="hu">
+
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nettó bér törlése</title>
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            appearance: none;
+            margin: 0;
+        }
+    </style>
 </head>
+
 <body>
 
     <h3>Kiszámitott bér törlése</h3>
 
-<form action="/deleterecord" method="post">
-Személyiszám <input type="text" name="id">
-<input type="submit" value="Submit">
-</form>
+    <form action="/deleterecord" method="post">
+        Személyiszám: <input type="number" name="id" required>
+        <input type="submit" value="Elfogad">
+    </form>
+    <a href="/">Vissza</a>
 </body>
+
 </html>
