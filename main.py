@@ -18,28 +18,28 @@ def saveDetails():
     msg = "msg"
     if request.method == "POST":
         try:
+            id = request.form["id"]
             nev = request.form["nev"]
-            szemelyi = request.form["szemelyi"]
             brutto = request.form["brutto"]
-            with sqlite3.connect("employee.db") as con:
+            with sqlite3.connect("ber.db") as con:
                 cur = con.cursor()
-                cur.execute("INSERT into Employees (name, email, address) values (?,?,?)", (name, email, address))
+                cur.execute("INSERT into Ber (id, nev, brutto) values (?,?,?)", (id, nev, brutto))
                 con.commit()
                 msg = "Sikeresen feltöltődött az adat"
         except:
             con.rollback()
             msg = "Nem lehet hozzáadni a listához"
         finally:
-            return render_template("success.html",msg=msg)
+            return render_template("success.html", msg=msg)
             con.close()
 
 
 @app.route("/view")
 def view():
-    con = sqlite3.connect("employee.db")
+    con = sqlite3.connect("ber.db")
     con.row_factory = sqlite3.Row
     cur = con.cursor()
-    cur.execute("select * from Employees")
+    cur.execute("select * from Ber")
     rows = cur.fetchall()
     return render_template("view.html", rows=rows)
 
@@ -51,11 +51,11 @@ def delete():
 
 @app.route("/deleterecord", methods=["POST"])
 def deleterecord():
-    szemelyi = request.form["id"]
-    with sqlite3.connect("employee.db") as con:
+    id = request.form["id"]
+    with sqlite3.connect("ber.db") as con:
         try:
             cur = con.cursor()
-            cur.execute("delete from Employees where id = ?", szemelyi)
+            cur.execute("delete from Ber where id = ?", id)
             msg = "Törlés megtörtént"
         except:
             msg = "Nem lehet törölni"
@@ -71,12 +71,12 @@ def updaterecord():
     msg = "msg"
     if request.method == "POST":
         try:
-            szemelyi = request.form["id"]
+            id = request.form["id"]
             nev = request.form["nev"]
             brutto = request.form["brutto"]
-            with sqlite3.connect("employee.db") as con:
+            with sqlite3.connect("ber.db") as con:
                 cur = con.cursor()
-                cur.execute("UPDATE Employees SET name=?, email=?, address=? WHERE id=?", (name, email, address, id))
+                cur.execute("UPDATE Ber SET nev=?, brutto=? WHERE id=?", (nev, brutto, id))
                 con.commit()
                 msg = "Sikeresen frissültek az adatok"
         except:
