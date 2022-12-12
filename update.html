@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bérfrissítés</title>
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Bérfrissítés</h2>
+    <form action="/updatedetails" method="post">
+        <table>
+            <tr>
+                <td>Személyiszám:</td>
+                <td><input type="number" name="id" required></td>
+            </tr>
+            <tr>
+                <td>Név:</td>
+                <td><input type="text" name="nev" required></td>
+            </tr>
+            <tr>
+                <td>Bruttó bér:</td>
+                <td><input type="text" name="brutto"required></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Elfogad"></td>
+            </tr>
+        </table>
+    </form>
+    <a href="/">Vissza</a>
+</body>
+
+</html>
