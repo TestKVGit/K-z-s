@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("index.html");
+    return render_template("index.html")
 
 
 @app.route("/add")
@@ -21,16 +21,16 @@ def saveDetails():
             id = request.form["id"]
             nev = request.form["nev"]
             brutto = request.form["brutto"]
+            netto = int(brutto) * 0.665
             with sqlite3.connect("ber.db") as con:
                 cur = con.cursor()
-                cur.execute("INSERT into Ber (id, nev, brutto) values (?,?,?)", (id, nev, brutto))
+                cur.execute("INSERT INTO Ber (id, nev, brutto,netto) VALUES (?,?,?,?)", (id, nev, brutto, netto))
                 con.commit()
                 msg = "Sikeresen feltöltődött az adat"
         except:
-            con.rollback()
             msg = "Nem lehet hozzáadni a listához"
         finally:
-            return render_template("success.html", msg=msg)
+            return render_template("success.html", msg = msg)
             con.close()
 
 
@@ -39,7 +39,7 @@ def view():
     con = sqlite3.connect("ber.db")
     con.row_factory = sqlite3.Row
     cur = con.cursor()
-    cur.execute("select * from Ber")
+    cur.execute("SELECT * FROM Ber")
     rows = cur.fetchall()
     return render_template("view.html", rows=rows)
 
@@ -55,7 +55,7 @@ def deleterecord():
     with sqlite3.connect("ber.db") as con:
         try:
             cur = con.cursor()
-            cur.execute("delete from Ber where id = ?", id)
+            cur.execute("DELETE FROM Ber where id = ?", id)
             msg = "Törlés megtörtént"
         except:
             msg = "Nem lehet törölni"
@@ -74,13 +74,13 @@ def updaterecord():
             id = request.form["id"]
             nev = request.form["nev"]
             brutto = request.form["brutto"]
+            netto = int(brutto) * 0.665
             with sqlite3.connect("ber.db") as con:
                 cur = con.cursor()
-                cur.execute("UPDATE Ber SET nev=?, brutto=? WHERE id=?", (nev, brutto, id))
+                cur.execute("UPDATE Ber SET nev=?, brutto=?, netto=? WHERE id=?", (id, nev, brutto, netto))
                 con.commit()
                 msg = "Sikeresen frissültek az adatok"
         except:
-            con.rollback()
             msg = "Nemlehet új adatot csinálni"
         finally:
             return render_template("success.html", msg=msg)
