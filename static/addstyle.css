@@ -1,0 +1,56 @@
+body {
+    background-image: url("pénz.jpg");
+    font-family: 'Times New Roman', Times, serif;
+    margin: 20px;
+    cursor: default;
+}
+
+.fejlec h2 {
+    background-color: rgba(180, 180, 180, 0.8);
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    color:white;
+}
+
+.container {
+    text-align: center;
+    margin: 25px;
+}
+
+.container a {
+    background-color: rgba(180, 180, 180, 0.8);
+    text-align: center;
+    text-decoration: none;
+    padding: 20px;
+    font-size: 20px;
+    color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.container a:hover {
+    background-color: hsla(120, 100%, 25%, 0.6);
+    font-weight: bold;
+}
+
+.form {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 30px;
+}
+
+.form table {
+    border: 1px solid black;
+    background-color: rgba(180, 180, 180, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+.form table #submit {
+    background-color: hsla(120, 100%, 25%, 0.6);
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+}
