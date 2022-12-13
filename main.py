@@ -30,7 +30,7 @@ def saveDetails():
         except:
             msg = "Nem lehet hozzáadni a listához"
         finally:
-            return render_template("static/success.js", msg = msg)
+            return render_template("success.html", msg = msg)
             con.close()
 
 
@@ -83,7 +83,7 @@ def updaterecord():
         except:
             msg = "Nemlehet új adatot csinálni"
         finally:
-            return render_template("static/success.js", msg = msg)
+            return render_template("success.html", msg = msg)
             con.close()
 
 if __name__ == "__main__":
