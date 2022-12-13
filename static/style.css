@@ -2,6 +2,7 @@ body {
     background-image: url("pénz.jpg");
     font-family: 'Times New Roman', Times, serif;
     margin: 20px;
+    background-size: cover;
 }
 
 .fejlec h2 {
