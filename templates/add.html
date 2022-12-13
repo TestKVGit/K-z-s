@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/addstyle.css">
     <title>Bér hozzáadás</title>
     <style>
         input::-webkit-outer-spin-button,
@@ -16,27 +17,33 @@
 </head>
 
 <body>
-    <h2>Bér hozzáadása</h2>
-    <form action="/savedetails" method="post">
-        <table>
-            <tr>
-                <td>Személyiszám:</td>
-                <td><input type="number" name="id" required></td>
-            </tr>
-            <tr>
-                <td>Név:</td>
-                <td><input type="text" name="nev" required></td>
-            </tr>
-            <tr>
-                <td>Bruttó bér:</td>
-                <td><input type="number" name="brutto" required></td>
-            </tr>
-            <tr>
-                <td><input type="submit" value="Elfogad"></td>
-            </tr>
-        </table>
+    <div class="fejlec">
+        <h2>Bér hozzáadása</h2>
+    </div>
+    <div class="form">
+        <form action="/savedetails" method="post">
+            <table>
+                <tr>
+                    <td>Személyiszám:<span style="color: red;">*</span></td>
+                    <td><input type="number" name="id" required></td>
+                </tr>
+                <tr>
+                    <td>Név:<span style="color: red;">*</span></td>
+                    <td><input type="text" name="nev" required></td>
+                </tr>
+                <tr>
+                    <td>Bruttó bér:<span style="color: red;">*</span></td>
+                    <td><input type="number" name="brutto" required></td>
+                </tr>
+                <tr>
+                    <td><input id="submit" type="submit" value="Elfogad"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div class="container">
         <a href="/">Vissza</a>
-    </form>
+    </div>
 
 </body>
 
